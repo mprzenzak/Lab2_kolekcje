@@ -191,25 +191,18 @@ public class VehicleRegistrationService {
                     if (vehicleType8.equals("car")) {
                         try {
                             HashMap cars = currentCar.getHashMap();
-                            for (var car : cars.entrySet()) {
-                                showCar((Car) car);
-                                System.out.println("HashCode wyświetlanego pojazdu:");
-                                System.out.println(car.hashCode());
-                                System.out.println("\n");
-                            }
-                            System.out.println("Koniec bazy");
+                            cars.forEach((car, owner) -> {
+                                System.out.println(car + ", którego właścicielem jest: " + owner);
+                            });
                         } catch (NullPointerException e) {
                             System.err.println("Brak pojazdów w bazie");
                         }
                     } else if (vehicleType8.equals("tractor")) {
                         try {
                             HashMap tractors = currentTractor.getHashMap();
-                            for (var tractor : tractors.entrySet()) {
-                                showTractor((Tractor) tractor);
-                                System.out.println("HashCode wyświetlanego pojazdu:");
-                                System.out.println(tractor.hashCode());
-                                System.out.println("\n");
-                            }
+                            tractors.forEach((tractor, owner) -> {
+                                System.out.println(tractor + ", którego właścicielem jest: " + owner);
+                            });
                             System.out.println("Koniec bazy");
                         } catch (NullPointerException e) {
                             System.err.println("Brak pojazdów w bazie");
@@ -221,24 +214,18 @@ public class VehicleRegistrationService {
                     if (vehicleType9.equals("car")) {
                         try {
                             TreeMap cars = currentCar.getTreeMap();
-                            for (var car : cars.entrySet()) {
-                                showCar((Car) car);
-                                System.out.println("HashCode wyświetlanego pojazdu:");
-                                System.out.println(car.hashCode());
-                                System.out.println("\n");
-                            }
+                            cars.forEach((car, owner) -> {
+                                System.out.println(car + ", którego właścicielem jest: " + owner);
+                            });
                         } catch (NullPointerException e) {
                             System.err.println("Brak pojazdów w bazie");
                         }
                     } else if (vehicleType9.equals("tractor")) {
                         try {
                             TreeMap tractors = currentTractor.getTreeMap();
-                            for (var tractor : tractors.entrySet()) {
-                                showTractor((Tractor) tractor);
-                                System.out.println("HashCode wyświetlanego pojazdu:");
-                                System.out.println(tractor.hashCode());
-                                System.out.println("\n");
-                            }
+                            tractors.forEach((tractor, owner) -> {
+                                System.out.println(tractor + ", którego właścicielem jest: " + owner);
+                            });
                         } catch (NullPointerException e) {
                             System.err.println("Brak pojazdów w bazie");
                         }
@@ -290,7 +277,7 @@ public class VehicleRegistrationService {
         HashSet hashSet = car.getHashSet();
         hashSet.add(car);
         TreeSet treeSet = car.getTreeSet();
-        //treeSet.add(car);
+        treeSet.add(car);
         ArrayList arrayList = car.getArrayList();
         arrayList.add(car);
         HashMap hashMap = car.getHashMap();

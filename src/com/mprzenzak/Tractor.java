@@ -12,7 +12,7 @@ public class Tractor extends Car implements Comparator<Car> {
     private static TreeSet treeSet = new TreeSet();
     private static ArrayList arrayList = new ArrayList();
     private static LinkedList linkedList = new LinkedList();
-    private static HashMap hashMap = new HashMap();
+    private static HashMap<Tractor, String> hashMap = new HashMap<>();
 
     @Override
     public HashSet getHashSet() {
