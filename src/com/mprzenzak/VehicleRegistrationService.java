@@ -15,6 +15,7 @@ public class VehicleRegistrationService {
                     "8 - Wyświetl bazę danych o pojazdach (HashMap)\n" +
                     "9 - Wyświetl bazę danych o pojazdach (TreeMap)\n" +
                     "10 - Zabawa w porównywanie (tylko samochód)\n" +
+                    "11 - Zabawa w porównywanie (tylko traktor)\n" +
                     "0 - Zakończ program\n";
 
     private static final String CHANGE_MENU =
@@ -246,9 +247,18 @@ public class VehicleRegistrationService {
                 case 10:
                     System.out.println("Utwórz nowy samochód");
                     currentCar = createNewCar();
-//                    if(currentCar.compareTo((Car)currentCar.getArrayList().get(0))){
-//                        System.out.println("Ma taki sam przebieg jak pierwszy dodany samochód");
-//                    }
+                    if (currentCar.compareTo((Car) currentCar.getArrayList().get(0)) == 0) {
+                        System.out.println("Ma taki sam przebieg jak pierwszy dodany samochód");
+                    } else if (currentCar.compareTo((Car) currentCar.getArrayList().get(0)) != 0) {
+                        System.out.println("Samochód ma inny przebieg niż pierwszy dodany samochód");
+                    }
+                    break;
+                case 11:
+                    System.out.println("Utwórz nowy traktor");
+                    currentTractor = createNewTractor();
+                    int powerDifference = currentTractor.compare(currentTractor, (Tractor) currentTractor.getArrayList().get(0));
+                    System.out.println("Różnica pomiędzy mocą podanego traktora, a mocą pierwszego taktora w bazie: " + powerDifference);
+                    break;
                 case 0:
                     UI.printInfoMessage("\nProgram zakończył działanie!");
                     System.exit(0);
@@ -256,7 +266,7 @@ public class VehicleRegistrationService {
         }
     }
 
-    public static String vehicleTypeSetter(){
+    public static String vehicleTypeSetter() {
         System.out.println("Wybierz typ pojazdu(tractor albo car):");
         Scanner scanner = new Scanner(System.in);
         String vehicleType = scanner.nextLine();

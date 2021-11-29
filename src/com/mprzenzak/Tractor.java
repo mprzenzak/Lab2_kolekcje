@@ -2,7 +2,7 @@ package com.mprzenzak;
 
 import java.util.*;
 
-public class Tractor extends Car{
+public class Tractor extends Car implements Comparator<Car> {
     private String ownerFirstName;
     private String ownerLastName;
     private int enginePower;
@@ -78,6 +78,11 @@ public class Tractor extends Car{
 
     public Tractor(String ownerFirstName, String ownerLastName, int enginePower, int mileage) {
         super(ownerFirstName, ownerLastName, enginePower, mileage);
+    }
+
+    @Override
+    public int compare(Car t1, Car t2) {
+        return t1.getEnginePower() - t2.getEnginePower();
     }
 
     @Override
